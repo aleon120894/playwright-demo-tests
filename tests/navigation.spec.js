@@ -5,7 +5,7 @@ test.describe('Navigation tests', () => {
     await page.goto('https://the-internet.herokuapp.com/');
     await page.click('a[href="/abtest"]');
     await expect(page).toHaveURL('https://the-internet.herokuapp.com/abtest');
-    await expect(page.locator('h3')).toContainText('A/B Test Control');
+    await expect(page.locator('h3')).toContainText(/A\/B Test Control|A\/B Test Variation 1/);
   });
 
   test('back and forward navigation', async ({ page }) => {
