@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Challenging DOM tests', () => {
 
   test('Verify buttons and answer field', async ({ page }) => {
+    
     await page.goto('https://the-internet.herokuapp.com/challenging_dom');
 
     // 🔹 3 Buttons - 3 classes — select with CSS

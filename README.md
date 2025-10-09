@@ -26,6 +26,7 @@ such as:
 - Login form
 - Checkboxes
 - Dropdown menus
+- DOM changes
 - Alerts
 - File upload
 - Status codes
