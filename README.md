@@ -31,6 +31,7 @@ such as:
 - File upload
 - Status codes
 - A/B testing
+- Checkboxes testing
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
