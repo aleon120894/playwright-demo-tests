@@ -32,6 +32,7 @@ such as:
 - Status codes
 - A/B testing
 - Checkboxes testing
+- Context menu testing
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
