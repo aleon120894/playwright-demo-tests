@@ -33,6 +33,7 @@ such as:
 - A/B testing
 - Checkboxes testing
 - Context menu testing
+- Dropdown testing
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
