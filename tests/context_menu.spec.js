@@ -33,7 +33,6 @@ test.describe("Context menu tests", () => {
         // --- Context Click Action ---
         // 2. Perform a right-click (context click) on the hot spot element
         // The 'button: "right"' option tells Playwright to simulate a right mouse click.
-        console.log(`Performing right-click on selector: ${HOT_SPOT_SELECTOR}`);
         await page.click(HOT_SPOT_SELECTOR, { button: 'right' });
 
         // Wait a moment for the dialog handler to execute and close the dialog.
@@ -43,7 +42,6 @@ test.describe("Context menu tests", () => {
 
         // --- Verification ---
         // 3. Verify that the captured alert text is correct
-        console.log(`Captured Alert Text: "${actualAlertText}"`);
         expect(actualAlertText).toBe(EXPECTED_ALERT_TEXT);
         
         // 4. Verify the alert was handled and the page is still usable (optional sanity check)
