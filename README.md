@@ -34,6 +34,7 @@ such as:
 - Checkboxes testing
 - Context menu testing
 - Dropdown testing
+- Digest authentication
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.

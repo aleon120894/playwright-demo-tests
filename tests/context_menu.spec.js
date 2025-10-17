@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 
 test.describe("Context menu tests", () => {
+    
     const PAGE_URL = 'https://the-internet.herokuapp.com/context_menu';
     const HOT_SPOT_SELECTOR = '#hot-spot';
     const EXPECTED_ALERT_TEXT = 'You selected a context menu';
