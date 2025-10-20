@@ -5,7 +5,6 @@ This project contains automated tests for demo websites, created using **Playwri
 ## 📦 Tech Stack
 - Node.js
 - Playwright Test
-- VS Code (recommended)
 
 
 ## 🚀 Installation
@@ -13,6 +12,10 @@ This project contains automated tests for demo websites, created using **Playwri
 ```bash
 git clone https://github.com/aleon120894/playwright-demo-tests.git
 cd playwright-demo-tests 
+```
+2. Running tests
+```bash
+npx playwright test
 ```
 
 ## Test Application

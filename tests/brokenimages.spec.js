@@ -34,6 +34,7 @@ test.describe('Broken Images Tests', () => {
 
                 // Resolve the full URL
                 let fullUrl;
+                
                 if (src.startsWith('http')) {
                     fullUrl = src;
                 } else {

@@ -23,4 +23,29 @@ test.describe("Digest auth tests", () => {
         // Use toContainText for a more robust check that ignores extra whitespace/newlines
         await expect(successMessage).toContainText(expectedText);
     });
+    test("Authorization with invalid username", async ({ page }) => {
+
+        const username = "noadmin";
+        const password = "admin";
+
+        // This URL construction is the standard way to handle HTTP authentication in Playwright
+        // and is expected to work for The Internet Herokuapp's digest auth challenge.
+        const authUrl = `https://${username}:${password}@the-internet.herokuapp.com/digest_auth`;
+
+        // Navigate to the authenticated URL
+        await page.goto(authUrl);
+    });
+
+    test("Authorization with invalid password", async ({ page }) => {
+
+        const username = "admin";
+        const password = "noadmin";
+
+        // This URL construction is the standard way to handle HTTP authentication in Playwright
+        // and is expected to work for The Internet Herokuapp's digest auth challenge.
+        const authUrl = `https://${username}:${password}@the-internet.herokuapp.com/digest_auth`;
+
+        // Navigate to the authenticated URL
+        await page.goto(authUrl);
+    });
 });
