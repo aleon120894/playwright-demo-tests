@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 
 test.describe('Checkboxes tests', () => {
+  
   /** @type {import('@playwright/test').Locator} */
   let checkbox1;
   /** @type {import('@playwright/test').Locator} */
