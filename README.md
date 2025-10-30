@@ -38,6 +38,7 @@ such as:
 - Context menu testing
 - Dropdown testing
 - Digest authentication
+- Drag and Drop tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
