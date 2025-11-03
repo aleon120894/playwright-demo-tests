@@ -39,6 +39,7 @@ such as:
 - Dropdown testing
 - Digest authentication
 - Drag and Drop tests
+- Dynamic Controls tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
