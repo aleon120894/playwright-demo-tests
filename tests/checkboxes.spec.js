@@ -15,6 +15,7 @@ test.describe('Checkboxes tests', () => {
   });
 
   test('Check both checkboxes', async () => {
+    
     await checkbox1.check();
     await checkbox2.check();
 

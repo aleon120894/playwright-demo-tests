@@ -4,8 +4,10 @@ import { test, expect } from '@playwright/test';
 // Callback-method for HTML5 drag & drop (works when page.dragAndDrop() doesn't work)
 async function html5DragAndDrop(page, sourceSelector, targetSelector) {
   await page.evaluate(({ sourceSelector, targetSelector }) => {
+
     function createDataTransfer() {
       try {
+
         return new DataTransfer();
       } catch {
         return {
@@ -34,6 +36,7 @@ async function html5DragAndDrop(page, sourceSelector, targetSelector) {
     fireEvent(src, 'dragstart', dt);
     fireEvent(dst, 'dragenter', dt);
     fireEvent(dst, 'dragover', dt);
+    
     fireEvent(dst, 'drop', dt);
     fireEvent(src, 'dragend', dt);
   }, { sourceSelector, targetSelector });
