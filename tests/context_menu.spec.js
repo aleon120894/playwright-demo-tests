@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 test.describe("Context menu tests", () => {
     
     const PAGE_URL = 'https://the-internet.herokuapp.com/context_menu';
