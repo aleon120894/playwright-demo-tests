@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 test.describe('Form authentication', () => {
   
   test('checkboxes interaction', async ({ page }) => {

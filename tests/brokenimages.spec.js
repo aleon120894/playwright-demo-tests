@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 // Define the base URL once to handle relative paths
 const BASE_URL = 'https://the-internet.herokuapp.com';
 

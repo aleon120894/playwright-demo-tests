@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 test.describe("Digest auth tests", () => {
     test("Authorization with valid creds", async ({ page }) => {
         
@@ -23,6 +22,7 @@ test.describe("Digest auth tests", () => {
         // Use toContainText for a more robust check that ignores extra whitespace/newlines
         await expect(successMessage).toContainText(expectedText);
     });
+    
     test("Authorization with invalid username", async ({ page }) => {
 
         const username = "noadmin";
