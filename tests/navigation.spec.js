@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+
 test.describe('Navigation tests', () => {
   
   test('navigate to About page', async ({ page }) => {

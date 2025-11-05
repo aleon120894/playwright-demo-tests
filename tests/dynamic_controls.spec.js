@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+
 test.describe("Dynamic controls tests", () => {
     
     const pageUrl = 'https://the-internet.herokuapp.com/dynamic_controls';
