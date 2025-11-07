@@ -40,6 +40,7 @@ such as:
 - Digest authentication
 - Drag and Drop tests
 - Dynamic Controls tests
+- Inputs tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
