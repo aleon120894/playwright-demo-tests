@@ -33,5 +33,3 @@ test.describe('Challenging DOM tests', () => {
   });
 
 });
-
-

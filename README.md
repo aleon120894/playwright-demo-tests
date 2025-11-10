@@ -41,6 +41,7 @@ such as:
 - Drag and Drop tests
 - Dynamic Controls tests
 - Inputs tests
+- Status codes tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
