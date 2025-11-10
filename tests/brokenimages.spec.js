@@ -7,7 +7,6 @@ const BASE_URL = 'https://the-internet.herokuapp.com';
 // Define the names of the images on the page that are intentionally broken
 const BROKEN_IMAGE_NAMES = ['asdf.jpg', 'hjkl.jpg'];
 
-
 test.describe('Broken Images Tests', () => {
 
     test('check broken images', async ({ page, request }) => {
