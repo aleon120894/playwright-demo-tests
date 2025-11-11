@@ -42,6 +42,7 @@ such as:
 - Dynamic Controls tests
 - Inputs tests
 - Status codes tests
+- Java Script Alerts tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
