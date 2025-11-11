@@ -24,6 +24,7 @@ test.describe('Checkboxes tests', () => {
   });
 
   test('Uncheck all checkboxes', async () => {
+
     await checkbox1.uncheck();
     await checkbox2.uncheck();
 
@@ -32,6 +33,7 @@ test.describe('Checkboxes tests', () => {
   });
 
   test('Check first checkbox', async () => {
+
     await checkbox1.check();
     await checkbox2.uncheck();
 
@@ -40,6 +42,7 @@ test.describe('Checkboxes tests', () => {
   });
 
   test('Check second checkbox', async () => {
+    
     await checkbox1.uncheck();
     await checkbox2.check();
 
