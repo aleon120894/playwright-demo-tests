@@ -43,6 +43,7 @@ such as:
 - Inputs tests
 - Status codes tests
 - Java Script Alerts tests
+- Horizontal Slider tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
