@@ -44,6 +44,7 @@ such as:
 - Status codes tests
 - Java Script Alerts tests
 - Horizontal Slider tests
+- Entry Ad tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
