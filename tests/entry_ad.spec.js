@@ -12,13 +12,6 @@ test.describe("Entry Ad tests", () => {
 
         // Go to entry ad page
         await page.goto("https://the-internet.herokuapp.com/entry_ad");
-
-        // // Pre-check 1: Use getByRole for the main page header. 
-        // // This is the stable fix for strict mode violation.
-        // await expect(page.getByRole('heading', { name: 'Entry Ad' })).toBeVisible();
-
-        // // Pre-check 2: Ensure the ad restart link is visible
-        // await expect(page.locator(modalClick)).toBeVisible();
     });
 
     // EA-001: Verify the modal auto-displays on load and can be successfully closed.

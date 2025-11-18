@@ -45,6 +45,7 @@ such as:
 - Java Script Alerts tests
 - Horizontal Slider tests
 - Entry Ad tests
+- Hovers tests
 
 
 It is often used for practicing UI automation with tools like Playwright, Selenium, and Cypress.
