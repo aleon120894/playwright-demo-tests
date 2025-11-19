@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 
+
 test.describe("Entry Ad tests", () => {
     
     // Locators
@@ -45,10 +46,10 @@ test.describe("Entry Ad tests", () => {
         // 2. Click the 'click here' link to make the ad reappear
         console.log("Re-enabling and checking modal visibility (waiting for reload)...");
         
-        // FIX 2: The click triggers a full page reload, so we must wait for the new navigation 
-        // before asserting the modal's visibility on the fresh page.
+        // FIX 2 (Revised): The click triggers a full page reload. We use Promise.all to click 
+        // AND wait for a stable state ('networkidle') on the new page before checking the modal.
         await Promise.all([
-            page.waitForEvent('framenavigated'), 
+            page.waitForLoadState('networkidle'), // Wait until the network is idle (more reliable than framenavigated)
             page.locator(modalClick).click(),
         ]);
         
