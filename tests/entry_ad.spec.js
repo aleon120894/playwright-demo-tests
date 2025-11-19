@@ -44,16 +44,17 @@ test.describe("Entry Ad tests", () => {
         await expect(page.locator(modal)).not.toBeVisible();
 
         // 2. Click the 'click here' link to make the ad reappear
-        console.log("Re-enabling and checking modal visibility (waiting for reload)...");
+        console.log("Re-enabling and checking modal visibility (synchronizing with page reload)...");
         
-        // FIX 2 (Revised): The click triggers a full page reload. We use Promise.all to click 
-        // AND wait for a stable state ('networkidle') on the new page before checking the modal.
+        // FIX 2 (Final Robust Fix): The click triggers a full page reload to the same URL.
+        // We use Promise.all to ensure the navigation/reload to the known URL is complete before proceeding.
         await Promise.all([
-            page.waitForLoadState('networkidle'), // Wait until the network is idle (more reliable than framenavigated)
+            page.waitForURL("https://the-internet.herokuapp.com/entry_ad"), // Wait for the navigation/reload to complete
             page.locator(modalClick).click(),
         ]);
         
         // 3. Assert the modal is visible again
+        // The assertion's internal wait should now be enough, as the page load is confirmed stable.
         await expect(page.locator(modal)).toBeVisible();
 
         // 4. Clean up
