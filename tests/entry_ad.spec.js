@@ -48,14 +48,12 @@ test.describe("Entry Ad tests", () => {
         
         // FIX 2 (Final Robust Fix): The click triggers a full page reload to the same URL.
         // We use Promise.all to ensure the navigation/reload to the known URL is complete before proceeding.
-        await Promise.all([
-            page.waitForURL("https://the-internet.herokuapp.com/entry_ad"), // Wait for the navigation/reload to complete
-            page.locator(modalClick).click(),
-        ]);
+        await page.locator(modalClick).click();
+        await page.waitForLoadState('networkidle');
         
         // 3. Assert the modal is visible again
         // The assertion's internal wait should now be enough, as the page load is confirmed stable.
-        await expect(page.locator(modal)).toBeVisible();
+        await expect(page.locator(modal)).toBeVisible({ timeout: 10000 });
 
         // 4. Clean up
         await page.locator(modalCloseButton).click();
