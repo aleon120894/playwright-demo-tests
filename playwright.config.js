@@ -38,10 +38,12 @@ export default defineConfig({
       use: { ...devices['Desktop Firefox'] },
     },
 
+    /* Test against webkit. Requires additional dependencies on Ubuntu.
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    */
 
     /* Test against mobile viewports. */
     // {

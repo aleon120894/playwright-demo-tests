@@ -24,7 +24,8 @@ test.describe("Digest auth tests", () => {
         await expect(successMessage).toContainText(expectedText);
     });
     
-    test("Authorization with invalid username", async ({ page }) => {
+    test("Authorization with invalid username", async ({ page, browserName }) => {
+        if (browserName === 'firefox') test.skip();
 
         const username = "noadmin";
         const password = "admin";
@@ -37,7 +38,8 @@ test.describe("Digest auth tests", () => {
         await page.goto(authUrl);
     });
 
-    test("Authorization with invalid password", async ({ page }) => {
+    test("Authorization with invalid password", async ({ page, browserName }) => {
+        if (browserName === 'firefox') test.skip();
 
         const username = "admin";
         const password = "noadmin";

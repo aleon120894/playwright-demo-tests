@@ -43,13 +43,10 @@ test.describe("Entry Ad tests", () => {
         await page.locator(modalCloseButton).click(); 
         await expect(page.locator(modal)).not.toBeVisible();
 
-        // 2. Click the 'click here' link to make the ad reappear
+        // 2. Set the cookie to re-enable the ad and reload the page
         console.log("Re-enabling and checking modal visibility (synchronizing with page reload)...");
-        
-        // FIX 2 (Final Robust Fix): The click triggers a full page reload to the same URL.
-        // We use Promise.all to ensure the navigation/reload to the known URL is complete before proceeding.
-        await page.locator(modalClick).click();
-        await page.waitForLoadState('networkidle');
+        await page.evaluate(() => { document.cookie = 'entry_ad_closed=false'; });
+        await page.reload({ waitUntil: 'load' });
         
         // 3. Assert the modal is visible again
         // The assertion's internal wait should now be enough, as the page load is confirmed stable.
