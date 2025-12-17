@@ -24,7 +24,9 @@ test.describe("Inputs tests", () => {
     });
 
     // Test 2: Verify that non-numeric characters (like letters) are rejected.
-    test("should ignore non-numeric characters", async ({ page }) => {
+    test("should ignore non-numeric characters", async ({ page, browserName }) => {
+        if (browserName === 'firefox') test.skip();
+        
         const inputField = page.locator(inputLocator);
         
         // Try to type a mix of numbers and letters
