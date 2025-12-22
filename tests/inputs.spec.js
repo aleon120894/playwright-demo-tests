@@ -1,71 +1,74 @@
 import { test, expect } from '@playwright/test';
+import { InputsPage } from '../pages/InputsPage.js';
 
 
 test.describe("Inputs tests", () => {
     
-    // We can define the locator once for easy reuse
-    const inputLocator = 'input[type="number"]';
+    let inputsPage;
 
     test.beforeEach(async ({ page }) => {
-        await page.goto("https://the-internet.herokuapp.com/inputs");
+        inputsPage = new InputsPage(page);
+        await inputsPage.goto();
         // Ensure the input field is visible before proceeding
-        await expect(page.locator(inputLocator)).toBeVisible();
+        await expect(page.locator(inputsPage.inputField)).toBeVisible();
     });
 
     // Test 1: Verify that typing numbers works as expected.
     test("should allow entry of numeric characters", async ({ page }) => {
-        const inputField = page.locator(inputLocator);
         const testValue = "12345.67";
         
-        await inputField.fill(testValue);
+        await inputsPage.fillInput(testValue);
         
         // Assert the value of the input field matches the expected number
-        await expect(inputField).toHaveValue(testValue);
+        const inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe(testValue);
     });
 
     // Test 2: Verify that non-numeric characters (like letters) are rejected.
     test("should ignore non-numeric characters", async ({ page, browserName }) => {
         if (browserName === 'firefox') test.skip();
         
-        const inputField = page.locator(inputLocator);
-        
         // Try to type a mix of numbers and letters
         const inputAttempt = "abc100xyz";
         
         // Use pressSequentially to simulate typing key by key
-        await inputField.pressSequentially(inputAttempt);
+        await inputsPage.pressSequentially(inputAttempt);
 
         // The input field should only contain the numbers (100)
-        await expect(inputField).toHaveValue("100");
+        const inputValueAfterFilter = await inputsPage.getInputValue();
+        expect(inputValueAfterFilter).toBe("100");
     });
 
     // Test 3: Verify that the Up and Down arrow keys increment/decrement the value.
     test("should respond to Up and Down arrow key presses", async ({ page }) => {
-        const inputField = page.locator(inputLocator);
         
         // Start with a value of 5
-        await inputField.fill('5');
-        await expect(inputField).toHaveValue('5');
+        await inputsPage.fillInput('5');
+        let inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe('5');
 
         // Press UP arrow key (increments by 1)
-        await inputField.press('ArrowUp');
-        await expect(inputField).toHaveValue('6');
+        await inputsPage.pressKey('ArrowUp');
+        inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe('6');
 
         // Press DOWN arrow key (decrements by 1)
-        await inputField.press('ArrowDown');
-        await expect(inputField).toHaveValue('5');
+        await inputsPage.pressKey('ArrowDown');
+        inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe('5');
     });
 
     // Test 4: Verify large numbers can be entered (checking boundary cases).
     test("should handle large and negative numbers", async ({ page }) => {
-        const inputField = page.locator(inputLocator);
         const largeValue = "999999999999";
         const negativeValue = "-12345";
         
-        await inputField.fill(largeValue);
-        await expect(inputField).toHaveValue(largeValue);
+        await inputsPage.fillInput(largeValue);
+        let inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe(largeValue);
 
-        await inputField.fill(negativeValue);
-        await expect(inputField).toHaveValue(negativeValue);
+        await inputsPage.fillInput(negativeValue);
+        inputValue = await inputsPage.getInputValue();
+        expect(inputValue).toBe(negativeValue);
     });
 });
