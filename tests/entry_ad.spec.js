@@ -43,10 +43,13 @@ test.describe("Entry Ad tests", () => {
         console.log("Re-enabling and checking modal visibility (synchronizing with page reload)...");
         await entryAdPage.reEnableAd();
         
-        // 3. Assert the modal is visible again (using locator assertion with retry logic)
-        await expect(page.locator(entryAdPage.modal)).toBeVisible();
+        // 3. Wait for page to be stable and ensure main content is visible before checking modal
+        await expect(page.getByRole('heading', { name: 'Entry Ad' })).toBeVisible();
+        
+        // 4. Assert the modal is visible again (using locator assertion with retry logic and increased timeout for CI)
+        await expect(page.locator(entryAdPage.modal)).toBeVisible({ timeout: 10000 });
 
-        // 4. Clean up
+        // 5. Clean up
         await entryAdPage.closeModal();
         await expect(page.locator(entryAdPage.modal)).toBeHidden();
     });
