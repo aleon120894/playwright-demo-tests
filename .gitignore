@@ -1,1 +1,11 @@
-test-results/
+# Playwright test results
+test-results/*
+playwright-report/*
+playwright/.cache/*
+
+# Node modules
+node_modules/*
+
+# OS files
+.DS_Store
+Thumbs.db

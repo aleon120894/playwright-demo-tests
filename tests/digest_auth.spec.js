@@ -20,23 +20,33 @@ test.describe("Digest auth tests", () => {
         expect(successMessage).toContain(expectedText);
     });
     
-    test("Authorization with invalid username", async ({ page, browserName }) => {
-        if (browserName === 'firefox') test.skip();
-
+    test("Authorization with invalid username", async ({ page }) => {
         const digestAuthPage = new DigestAuthPage(page);
         const username = "noadmin";
         const password = "admin";
 
+        // Navigate with invalid credentials
+        // Firefox may throw an error (NS_ERROR_NET_EMPTY_RESPONSE), which is expected behavior
         await digestAuthPage.gotoWithAuth(username, password);
+        
+        // Verify authentication failed - we should NOT be authenticated
+        // isAuthenticated returns false or null when auth fails
+        const isAuthenticated = await digestAuthPage.isAuthenticated();
+        expect(isAuthenticated).not.toBe(true);
     });
 
-    test("Authorization with invalid password", async ({ page, browserName }) => {
-        if (browserName === 'firefox') test.skip();
-
+    test("Authorization with invalid password", async ({ page }) => {
         const digestAuthPage = new DigestAuthPage(page);
         const username = "admin";
         const password = "noadmin";
 
+        // Navigate with invalid credentials
+        // Firefox may throw an error (NS_ERROR_NET_EMPTY_RESPONSE), which is expected behavior
         await digestAuthPage.gotoWithAuth(username, password);
+        
+        // Verify authentication failed - we should NOT be authenticated
+        // isAuthenticated returns false or null when auth fails
+        const isAuthenticated = await digestAuthPage.isAuthenticated();
+        expect(isAuthenticated).not.toBe(true);
     });
 });
