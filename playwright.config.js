@@ -11,8 +11,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Reduce workers to minimize CPU usage - use 2 workers for both local and CI */
-  workers: 2,
+  /* Reduce workers to minimize CPU usage - 1 worker locally, 2 for CI */
+  workers: process.env.CI ? 2 : 1,
   /* Increase timeout for CI environments */
   timeout: process.env.CI ? 60000 : 30000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -38,12 +38,46 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        /* Browser launch arguments to reduce CPU usage */
+        launchOptions: {
+          args: [
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--disable-software-rasterizer',
+            '--disable-extensions',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-background-networking',
+            '--disable-background-timer-throttling',
+            '--disable-renderer-backgrounding',
+            '--disable-backgrounding-occluded-windows',
+            '--disable-ipc-flooding-protection',
+            '--disable-features=TranslateUI',
+          ],
+        },
+      },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { 
+        ...devices['Desktop Firefox'],
+        /* Firefox launch preferences to reduce CPU usage */
+        launchOptions: {
+          firefoxUserPrefs: {
+            'dom.disable_beforeunload': true,
+            'dom.disable_window_move_resize': true,
+            'dom.disable_window_open_feature.close': true,
+            'media.navigator.streams.fake': true,
+            'media.navigator.permission.disabled': true,
+          },
+          args: [
+            '--no-remote',
+          ],
+        },
+      },
     },
 
     /* Test against webkit. Requires additional dependencies on Ubuntu.
