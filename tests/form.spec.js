@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Form authentication', () => {
   
-  test('checkboxes interaction', async ({ page }) => {
+  test('FA-001: Checkboxes interaction', async ({ page }) => {
     
     // Go to checkboxes checking
     await page.goto('https://the-internet.herokuapp.com/checkboxes');

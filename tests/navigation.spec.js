@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Navigation tests', () => {
   
-  test('navigate to About page', async ({ page }) => {
+  test('NV-001: Navigate to About page', async ({ page }) => {
 
     await page.goto('https://the-internet.herokuapp.com/');
     await page.click('a[href="/abtest"]');
@@ -12,7 +12,7 @@ test.describe('Navigation tests', () => {
     await expect(page.locator('h3')).toContainText(/A\/B Test Control|A\/B Test Variation 1/);
   });
 
-  test('back and forward navigation', async ({ page }) => {
+  test('NV-002: Back and forward navigation', async ({ page }) => {
 
     await page.goto('https://the-internet.herokuapp.com/');
     await page.click('a[href="/checkboxes"]');
@@ -25,7 +25,7 @@ test.describe('Navigation tests', () => {
     await expect(page).toHaveURL(/.*checkboxes/);
   });
 
-  test('status codes page navigation', async ({ page }) => {
+  test('NV-003: Status codes page navigation', async ({ page }) => {
     
     await page.goto('https://the-internet.herokuapp.com/');
     await page.click('a[href="/status_codes"]');

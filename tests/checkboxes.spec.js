@@ -14,7 +14,7 @@ test.describe('Checkboxes tests', () => {
     checkbox2 = page.locator('#checkboxes input[type="checkbox"]').nth(1);
   });
 
-  test('Check both checkboxes', async () => {
+  test('CHB-001: Check both checkboxes', async () => {
     
     await checkbox1.check();
     await checkbox2.check();
@@ -23,7 +23,7 @@ test.describe('Checkboxes tests', () => {
     await expect(checkbox2).toBeChecked();
   });
 
-  test('Uncheck all checkboxes', async () => {
+  test('CHB-002: Uncheck all checkboxes', async () => {
 
     await checkbox1.uncheck();
     await checkbox2.uncheck();
@@ -32,7 +32,7 @@ test.describe('Checkboxes tests', () => {
     await expect(checkbox2).not.toBeChecked();
   });
 
-  test('Check first checkbox', async () => {
+  test('CHB-003: Check first checkbox', async () => {
 
     await checkbox1.check();
     await checkbox2.uncheck();
@@ -41,7 +41,7 @@ test.describe('Checkboxes tests', () => {
     await expect(checkbox2).not.toBeChecked();
   });
 
-  test('Check second checkbox', async () => {
+  test('CHB-004: Check second checkbox', async () => {
     
     await checkbox1.uncheck();
     await checkbox2.check();

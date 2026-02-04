@@ -6,7 +6,7 @@ test.describe("Status codes tests", () => {
     const statusCodesBaseUrl = "https://the-internet.herokuapp.com/status_codes";
 
     // Test 1: Verify the 200 Status Code (Successful Load)
-    test("Verify 200 Status Code (OK) via navigation and content", async ({ page }) => {
+    test("SC-001: Verify 200 Status Code (OK) via navigation and content", async ({ page }) => {
         
         // 1. Navigate directly to the 200 endpoint and capture the response
         const response = await page.goto(`${statusCodesBaseUrl}/200`);
@@ -19,7 +19,7 @@ test.describe("Status codes tests", () => {
     });
 
     // Test 2: Verify the 301 Status Code (Moved Permanently)
-    test("Verify 301 Status Code (Moved Permanently) via API request", async ({ page, request }) => {
+    test("SC-002: Verify 301 Status Code (Moved Permanently) via API request", async ({ page, request }) => {
         
         // page.goto() automatically follows redirects. To check the 301 directly, 
         // we use page.request.get() with maxRedirects: 0 to check the initial response.
@@ -30,7 +30,7 @@ test.describe("Status codes tests", () => {
     });
 
     // Test 3: Verify the 404 Status Code (Not Found)
-    test("Verify 404 Status Code (Not Found) via navigation and content", async ({ page }) => {
+    test("SC-003: Verify 404 Status Code (Not Found) via navigation and content", async ({ page }) => {
         
         // 1. Navigate directly to the 404 endpoint and capture the response
         const response = await page.goto(`${statusCodesBaseUrl}/404`);
@@ -43,7 +43,7 @@ test.describe("Status codes tests", () => {
     });
 
     // Test 4: Verify the 500 Status Code (Internal Server Error)
-    test("Verify 500 Status Code (Internal Server Error) via navigation and content", async ({ page }) => {
+    test("SC-004: Verify 500 Status Code (Internal Server Error) via navigation and content", async ({ page }) => {
         
         // 1. Navigate directly to the 500 endpoint and capture the response
         const response = await page.goto(`${statusCodesBaseUrl}/500`);

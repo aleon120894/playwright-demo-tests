@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe("Dropdown tests", () => {
     
-    test("Dropdown test: option 1", async ({ page }) => {
+    test("DD-001: Dropdown test: option 1", async ({ page }) => {
 
         // 1. Navigate to the dropdown page
         await page.goto("https://the-internet.herokuapp.com/dropdown");
@@ -19,7 +19,7 @@ test.describe("Dropdown tests", () => {
         await expect(dropdown).toHaveValue('1');
     });
 
-    test("Dropdown test option 2", async ({ page }) => {
+    test("DD-002: Dropdown test option 2", async ({ page }) => {
 
         // 1. Navigate to the dropdown page
         await page.goto("https://the-internet.herokuapp.com/dropdown");
