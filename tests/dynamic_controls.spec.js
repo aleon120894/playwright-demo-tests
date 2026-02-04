@@ -17,7 +17,7 @@ test.describe("Dynamic controls tests", () => {
     });
 
      // Test 1: Verify the checkbox can be removed
-    test('should remove the checkbox and verify its disappearance', async({ page }) => {
+    test('Should remove the checkbox and verify its disappearance', async({ page }) => {
 
         // 1. Click the 'Remove' button
         await page.click(checkboxButtonSelector);
@@ -32,13 +32,13 @@ test.describe("Dynamic controls tests", () => {
     });
 
       // Test 2: Verify the checkbox can be added back
-    test('should add the checkbox back and verify its presence', async ({ page }) => {
+    test('Should add the checkbox back and verify its presence', async ({ page }) => {
         // First, remove it (as done in the previous test)
         await page.click(checkboxButtonSelector);
         await expect(page.locator(checkboxMessageSelector)).toHaveText("It's gone!", { timeout: 10000 });
         
         // 1. Click the 'Add' button (it's the same selector, the button text changes)
-        await page.click(checkboxButtonSelector);
+await page.click(checkboxButtonSelector);
 
         // 2. Wait for the 'It's back!' message
         await expect(page.locator(checkboxMessageSelector)).toHaveText("It's back!", { timeout: 10000 });
@@ -48,7 +48,7 @@ test.describe("Dynamic controls tests", () => {
     });
 
     // Test 3: Verify the input field can be enabled and text can be entered
-    test('should enable the input field and allow typing', async ({ page }) => {
+    test('Should enable the input field and allow typing', async ({ page }) => {
         // 1. Assert the input field is initially disabled
         const inputField = page.locator(inputSelector);
         await expect(inputField).toBeDisabled();

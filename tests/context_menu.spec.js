@@ -7,7 +7,7 @@ test.describe("Context menu tests", () => {
     const EXPECTED_ALERT_TEXT = 'You selected a context menu';
 
     // Test to verify that right-clicking the hotspot triggers the correct alert
-    test('should trigger an alert with the expected text upon right-click', async ({ page }) => {
+    test('CM-001: Should trigger an alert with the expected text upon right-click', async ({ page }) => {
         const contextMenuPage = new ContextMenuPage(page);
         
         // 1. Navigate to the page

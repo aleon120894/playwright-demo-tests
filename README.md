@@ -16,7 +16,8 @@ playwright-demo-tests/
 │   ├── ContextMenuPage.js
 │   ├── DigestAuthPage.js
 │   ├── EntryAdPage.js
-│   └── InputsPage.js
+│   ├── InputsPage.js
+│   └── WindowsPage.js
 ├── tests/                    # Test specifications
 │   ├── brokenimages.spec.js
 │   ├── chalengingdom.spec.js
@@ -35,7 +36,8 @@ playwright-demo-tests/
 │   ├── login.spec.js
 │   ├── navigation.spec.js
 │   ├── redirect_link.spec.js
-│   └── status_codes.spec.js
+│   ├── status_codes.spec.js
+│   └── windows.spec.js
 ├── playwright.config.js      # Playwright configuration
 ├── package.json              # Project dependencies
 └── README.md                 # Project documentation
@@ -115,7 +117,7 @@ npx playwright show-report
 
 ## 📊 Test Coverage
 
-The project includes **84 test cases** covering various UI components and scenarios:
+The project includes **86 test cases** covering various UI components and scenarios:
 
 ### Test Categories:
 
@@ -144,6 +146,7 @@ The project includes **84 test cases** covering various UI components and scenar
   - Page navigation
   - Redirect links
   - Status codes
+  - Multiple windows (new window handling)
 
 - ✅ **Other**
   - Broken images

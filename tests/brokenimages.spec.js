@@ -9,7 +9,7 @@ const BROKEN_IMAGE_NAMES = ['asdf.jpg', 'hjkl.jpg'];
 
 test.describe('Broken Images Tests', () => {
 
-    test('check broken images', async ({ page, request }) => {
+    test('BI-001: Check broken images', async ({ page, request }) => {
         
         // 1. Navigate to the Broken Images page
         await page.goto(`${BASE_URL}/broken_images`);

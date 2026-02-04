@@ -11,7 +11,7 @@ test.describe("Redirect Link Tests", () => {
     
     // The test function correctly receives and destructures the { page } fixture.
     // All asynchronous actions (like await page.goto) must be inside this function.
-    test("should redirect the user to the Status Codes page after clicking the link", async ({ page }) => {
+    test("RD-001: Should redirect the user to the Status Codes page after clicking the link", async ({ page }) => {
         
         console.log(`Navigating to: ${REDIRECTOR_URL}`);
         await page.goto(REDIRECTOR_URL);

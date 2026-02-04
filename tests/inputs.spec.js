@@ -14,7 +14,7 @@ test.describe("Inputs tests", () => {
     });
 
     // Test 1: Verify that typing numbers works as expected.
-    test("should allow entry of numeric characters", async ({ page }) => {
+    test("IT-001: Should allow entry of numeric characters", async ({ page }) => {
         const testValue = "12345.67";
         
         await inputsPage.fillInput(testValue);
@@ -25,7 +25,7 @@ test.describe("Inputs tests", () => {
     });
 
     // Test 2: Verify that non-numeric characters (like letters) are rejected.
-    test("should ignore non-numeric characters", async ({ page }) => {
+    test("IT-002: Should ignore non-numeric characters", async ({ page }) => {
         // Try to type a mix of numbers and letters
         const inputAttempt = "abc100xyz";
         
@@ -55,7 +55,7 @@ test.describe("Inputs tests", () => {
     });
 
     // Test 3: Verify that the Up and Down arrow keys increment/decrement the value.
-    test("should respond to Up and Down arrow key presses", async ({ page }) => {
+    test("IT-003: should respond to Up and Down arrow key presses", async ({ page }) => {
         
         // Start with a value of 5
         await inputsPage.fillInput('5');
@@ -74,7 +74,7 @@ test.describe("Inputs tests", () => {
     });
 
     // Test 4: Verify large numbers can be entered (checking boundary cases).
-    test("should handle large and negative numbers", async ({ page }) => {
+    test("IT-004: Should handle large and negative numbers", async ({ page }) => {
         const largeValue = "999999999999";
         const negativeValue = "-12345";
         

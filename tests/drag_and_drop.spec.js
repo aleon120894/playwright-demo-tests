@@ -45,7 +45,7 @@ async function html5DragAndDrop(page, sourceSelector, targetSelector) {
 
 test.describe("Drag and Drop Tests", () => {
   
-  test("Built-in dragAndDrop should swap columns", async ({ page }) => {
+  test("DND-001: Built-in dragAndDrop should swap columns", async ({ page }) => {
 
     await page.goto("https://the-internet.herokuapp.com/drag_and_drop");
 
@@ -64,7 +64,7 @@ test.describe("Drag and Drop Tests", () => {
     await expect(columnBHeader).toHaveText("A");
   });
 
-  test("HTML5 dragAndDrop fallback works correctly", async ({ page }) => {
+  test("DND-002: HTML5 dragAndDrop fallback works correctly", async ({ page }) => {
     
     await page.goto("https://the-internet.herokuapp.com/drag_and_drop");
 

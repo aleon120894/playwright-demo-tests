@@ -3,7 +3,7 @@ import { DigestAuthPage } from '../pages/DigestAuthPage.js';
 
 
 test.describe("Digest auth tests", () => {
-    test("Authorization with valid creds", async ({ page }) => {
+    test("DA-001: Authorization with valid creds", async ({ page }) => {
         
         const digestAuthPage = new DigestAuthPage(page);
         const username = "admin";
@@ -20,7 +20,7 @@ test.describe("Digest auth tests", () => {
         expect(successMessage).toContain(expectedText);
     });
     
-    test("Authorization with invalid username", async ({ page }) => {
+    test("DA-002: Authorization with invalid username", async ({ page }) => {
         const digestAuthPage = new DigestAuthPage(page);
         const username = "noadmin";
         const password = "admin";
@@ -35,7 +35,7 @@ test.describe("Digest auth tests", () => {
         expect(isAuthenticated).not.toBe(true);
     });
 
-    test("Authorization with invalid password", async ({ page }) => {
+    test("DA-003: Authorization with invalid password", async ({ page }) => {
         const digestAuthPage = new DigestAuthPage(page);
         const username = "admin";
         const password = "noadmin";

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Login functionality', () => {
   
-  test('valid login', async ({ page }) => {
+  test('LT-001: Valid login', async ({ page }) => {
 
     await page.goto('https://the-internet.herokuapp.com/login');
     await page.fill('#username', 'tomsmith');
@@ -13,7 +13,7 @@ test.describe('Login functionality', () => {
     await expect(page.locator('#flash')).toContainText('You logged into a secure area!');
   });
 
-  test('invalid login', async ({ page }) => {
+  test('LT-002: Invalid login', async ({ page }) => {
     
     await page.goto('https://the-internet.herokuapp.com/login');
     await page.fill('#username', 'wrong');
