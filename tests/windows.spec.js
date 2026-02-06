@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { WindowsPage } from '../pages/WindowsPage.js';
 
+
 test.describe('Windows page tests', () => {
 
   test('WN-001: Should open a new window with correct URL and header text', async ({ page }) => {
