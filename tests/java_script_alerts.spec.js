@@ -14,7 +14,7 @@ test.describe("Java Script alerts tests", () => {
     });
 
      // Test 1: Handle a standard JS Alert (which only has an OK button)
-    test("Test 1: Handle a standard JS Alert (which only has an OK button)", async ({ page }) => {
+    test("JSA-001: Handle a standard JS Alert (which only has an OK button)", async ({ page }) => {
 
         // 1. Set up the dialog listener BEFORE clicking the button.
         // Playwright will automatically accept (click OK) if no action is specified.
@@ -34,7 +34,7 @@ test.describe("Java Script alerts tests", () => {
     });
 
     // Test 2: Handle a JS Confirm (which has OK and Cancel buttons)
-    test("Test 2: Handle a JS Confirm (which has OK and Cancel buttons)", async ({ page }) => {
+    test("JSA-002: Handle a JS Confirm (which has OK and Cancel buttons)", async ({ page }) => {
         
         // 1. Set up the dialog listener
         page.on('dialog', async dialog => {
@@ -52,7 +52,7 @@ test.describe("Java Script alerts tests", () => {
     });
 
     // Test 3: Handle a JS Prompt (which accepts text input)
-    test("Test 3: Handle a JS Prompt (which accepts text input)", async ({ page }) => {
+    test("JSA-003: Handle a JS Prompt (which accepts text input)", async ({ page }) => {
 
         const inputText = "Playwright is awesome!";
 

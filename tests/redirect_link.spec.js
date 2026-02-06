@@ -3,6 +3,7 @@ import { test, expect } from "@playwright/test";
 
 // Base URL for the page containing the redirect link
 const REDIRECTOR_URL = "https://the-internet.herokuapp.com/redirector";
+
 // Expected URL after the redirect
 const TARGET_URL = "https://the-internet.herokuapp.com/status_codes";
 const STATUS_CODES_HEADER_SELECTOR = "#content > div > h3";
@@ -13,7 +14,7 @@ test.describe("Redirect Link Tests", () => {
     // All asynchronous actions (like await page.goto) must be inside this function.
     test("RD-001: Should redirect the user to the Status Codes page after clicking the link", async ({ page }) => {
         
-        console.log(`Navigating to: ${REDIRECTOR_URL}`);
+        // console.log(`Navigating to: ${REDIRECTOR_URL}`);
         await page.goto(REDIRECTOR_URL);
 
         // Locator for the redirect link, using Playwright's more robust method
@@ -23,12 +24,12 @@ test.describe("Redirect Link Tests", () => {
         await expect(page.locator(STATUS_CODES_HEADER_SELECTOR)).toContainText("Redirection");
 
         // Click the link and wait for the navigation to complete
-        console.log("Clicking the redirect link...");
+        // console.log("Clicking the redirect link...");
         await redirectLink.click();
         
         // Assert that the final URL matches the expected target
         const currentUrl = page.url();
-        console.log(`Redirect complete. Final URL: ${currentUrl}`);
+        // console.log(`Redirect complete. Final URL: ${currentUrl}`);
         
         // 1. Assert the URL
         await expect(page).toHaveURL(TARGET_URL);

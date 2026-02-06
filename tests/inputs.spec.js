@@ -75,6 +75,7 @@ test.describe("Inputs tests", () => {
 
     // Test 4: Verify large numbers can be entered (checking boundary cases).
     test("IT-004: Should handle large and negative numbers", async ({ page }) => {
+        
         const largeValue = "999999999999";
         const negativeValue = "-12345";
         
