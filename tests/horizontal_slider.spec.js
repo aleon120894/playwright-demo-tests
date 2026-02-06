@@ -47,7 +47,7 @@ test.describe("Horizontal Slider Tests", () => {
         // Use .fill() to directly set the value of the input range element. 
         await page.fill(sliderInput, maxValue);
         
-        console.log(`Setting slider value to ${maxValue}`);
+        // console.log(`Setting slider value to ${maxValue}`);
 
         // The page displays "5"
         await expect(page.locator(rangeDisplay)).toHaveText('5');
@@ -66,7 +66,7 @@ test.describe("Horizontal Slider Tests", () => {
         // Set back to minimum value
         await page.fill(sliderInput, minValue);
         
-        console.log(`Setting slider value to ${minValue}`);
+        // console.log(`Setting slider value to ${minValue}`);
 
         // Expect "0"
         await expect(page.locator(rangeDisplay)).toHaveText('0');
